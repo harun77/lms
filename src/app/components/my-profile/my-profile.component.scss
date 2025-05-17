@@ -1,0 +1,18 @@
+mat-icon {
+    float: right;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.actions {
+    
+    display: flex;
+    gap: 12px;
+    align-self: flex-end;
+
+}

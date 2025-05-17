@@ -1,0 +1,12 @@
+.data {
+    display: flex;
+    justify-content: space-between;
+    background: lightsteelblue;
+    padding: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+
+    p {
+        width: 20%;
+    }
+}

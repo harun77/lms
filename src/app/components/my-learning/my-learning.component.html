@@ -1,0 +1,10 @@
+@for(data of dataSource; track data.title) {
+<div class="data">
+    <p> {{data.title}} </p>
+    <p> {{data.status}} </p>
+    <p>
+        <input type="range" min="0" max="100" [value]="data.progress" (input)="updateProgress(data.id, $event)" />
+        {{data.progress}}%
+    </p>
+</div>
+}

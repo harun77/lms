@@ -1,0 +1,36 @@
+<div class="courses">
+    <p class="title">Course Catalog</p>
+    <div class="filters">
+        <h4>Filter By</h4>
+        <input type="checkbox" (change)="allCourses($event)" checked> All
+        <input type="checkbox" (change)="freeCourses($event)"> Free
+        <input type="checkbox" (change)="paidCourses($event)"> Paid
+        <input type="checkbox" (change)="programmingCourses($event)"> Programming
+        <input type="checkbox" (change)="businessCourses($event)"> Business
+        <input type="checkbox" (change)="marketingCourses($event)"> Marketing
+    </div>
+
+    <mat-form-field appearance="outline" class="search-bar">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" placeholder="Search" [(ngModel)]="searchText"
+            (ngModelChange)="search()" />
+    </mat-form-field>
+
+    @for(course of filteredCourses; track course.id) {
+    <mat-card class="card">
+        <mat-card-content>
+            <div class="course-list">
+                <div class="course-item">
+                    <h3>Title: {{ course.title }}</h3>
+                    <h3>Category: {{ course.category }}</h3>
+                    <h3>Duration: {{ course.duration }} Hour</h3>
+                    <p class="status">{{ course.isFree ? 'Free' : 'Paid' }}</p>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-stroked-button (click)="details(course.id)">Details</button>
+        </mat-card-actions>
+    </mat-card>
+    }
+</div>

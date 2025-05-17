@@ -1,0 +1,15 @@
+<h6 class="title" routerLink="/">LMS</h6>
+
+<div class="user" [matMenuTriggerFor]="menu">
+    <img src="user.png" alt="User Profile Picture" />
+    <p>{{ user?.name }}</p>
+</div>
+
+<mat-menu #menu="matMenu">
+    @for(nav of navs; track nav.name) {
+        <button mat-menu-item [routerLink]="nav.route">
+            <mat-icon>{{ nav.icon }}</mat-icon>
+            <span>{{ nav.name }}</span>
+        </button>
+    }
+</mat-menu>

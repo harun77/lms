@@ -1,0 +1,40 @@
+<div class="container">
+    <mat-icon (click)="edit()">edit</mat-icon>
+    @if(!editMode) {
+    <div class="content">
+        <p>Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Preferred Categories: {{ user.preferences.preferredCategories }}</p>
+        <p>Notification Preference: {{ user.preferences.notifications }}</p>
+    </div>
+    } @else {
+    <div class="content">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Name" [(ngModel)]="user.name" name="name" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input type="email" matInput #email="ngModel" placeholder="Email" [(ngModel)]="user.email" name="email"
+                    required>
+            </mat-form-field>
+            <div *ngIf="email.invalid && email.touched">
+                <small *ngIf="email.errors?.['required']">Email is required.</small>
+                <small *ngIf="email.errors?.['email']">Invalid email format.</small>
+            </div>
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Preferred Categories" [(ngModel)]="user.preferences.preferredCategories"
+                    name="preferredCategories">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Notification Preference" [(ngModel)]="user.preferences.notifications"
+                    name="notifications">
+            </mat-form-field>
+            <div class="actions">
+                <button mat-stroked-button type="submit">cancel</button>
+                <button mat-raised-button type="submit" [disabled]="form.invalid">Save</button>
+            </div>
+
+        </form>
+    </div>
+    }
+</div>

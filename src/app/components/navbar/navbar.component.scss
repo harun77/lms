@@ -1,0 +1,26 @@
+:host {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+img {
+    width: 24px;
+    height: auto;
+    border-radius: 100%;
+}
